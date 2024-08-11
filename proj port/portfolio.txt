@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: url('backgr.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #d08b0a;
+}
+p {
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+}
+
+
+.profile-container {
+    text-align: center;
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 20%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+
+header {
+    background-color: transparent; 
+    color: #fff;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    height: 10px;
+    width: 10px;
+}
+
+header .nav-links {
+    list-style: none;
+    display: flex;
+}
+
+header .nav-links li {
+    margin-left: 20px;
+}
+
+header .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+header .nav-links a:hover {
+    color: #f4b400;
+}
+
+header .menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.home {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-content {
+    text-align: center;
+    color: #fff;
+}
+
+.home h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: aquamarine;
+}
+
+.home h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: cadetblue;
+}
+
+.home p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.buttons .btn {
+    background-color: #f4b400;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 10px;
+    transition: background-color 0.3s;
+}
+
+.buttons .btn:hover {
+    background-color: #e5a200;
+}
+
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    header .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: rgba(51, 51, 51, 0.9);
+    }
+
+    header .nav-links li {
+        margin: 15px 0;
+    }
+
+    header .menu-toggle {
+        display: block;
+    }
+}
+
+.contact {
+    background-color: transparent;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.contact p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+}
+
+.contact-info a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.service {
+    background-color: transparent;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.service h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+}
+
+.service-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.service-item {
+    background-color: transparent;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 300px;
+    text-align: left;
+}
+
+.service-item h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.service-item p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .service-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-item {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+.portfolio {
+    background-color: transparent;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.portfolio h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+}
+
+.portfolio-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.portfolio-item {
+    background-color: transparent;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 300px;
+    text-align: left;
+    overflow: hidden;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px 8px 0 0;
+}
+
+.portfolio-item h3 {
+    font-size: 1.8em;
+    margin: 15px 0 10px;
+}
+
+.portfolio-item p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.portfolio-item .btn {
+    background-color: #f4b400;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    display: inline-block;
+}
+
+.portfolio-item .btn:hover {
+    background-color: #e5a200;
+}
+
+@media (max-width: 768px) {
+    .portfolio-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .portfolio-item {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+.nav-links {
+    display: none;
+}
+
+.nav-links.active {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+</style>
+<body>
+    <header>
+        <nav>
+            <div class="menu-toggle">☰</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#service">Service</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="home" class="home">
+        <div class="profile-container">
+            <img src="Aniket.jpg" alt="Profile Photo" class="profile-photo">
+        </div>
+        <div class="home-content">
+            <h1><b><i>HELLO!</i></b></h1>
+            <h2 style="color: red;"><b><i>Welcome To My Portfolio <br> I Am <span style="color: aqua;">Aniket Kumar Singh</span></i></b></h2>
+            <div class="buttons">
+                <a href="#portfolio" class="btn">View Work</a>
+                <a href="#contact" class="btn">Hire Me</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <p>My name is Aniket Kumar Singh, and I am pursuing a BTech in Artificial Intelligence (AI). I am passionate about technology and AI's transformative potential. My studies encompass machine learning, neural networks, natural language processing, and data science, providing me with a strong theoretical and practical foundation. I actively engage in projects, research, and internships to enhance my skills and knowledge. My goal is to develop intelligent systems that solve real-world problems and improve lives, particularly in healthcare and finance. I am committed to staying at the forefront of AI advancements and making a significant impact in the tech industry.</p>
+    </section>
+
+    <section id="service" class="service">
+        <h2>My Services</h2>
+        <div class="service-container">
+            <div class="service-item">
+                <h3>Web Development</h3>
+                <p>I build responsive and dynamic websites using the latest web technologies. Whether it's a simple landing page or a complex web application, I can help you bring your vision to life.</p>
+            </div>
+            <div class="service-item">
+                <h3>Graphic Design</h3>
+                <p>I create visually appealing designs for various needs including logos, brochures, and social media graphics. My designs are tailored to fit your brand and engage your audience.</p>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="portfolio" class="portfolio">
+        <h2>My Work</h2>
+        <div class="portfolio-container">
+            <div class="portfolio-item">
+                <h3>Project 1</h3>
+                <a href="exp1.html" target="_blank" class="btn">View Project</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>Project 2</h3>
+                <a href="exp2.html" target="_blank" class="btn">View Project</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>Project 3</h3>
+                <a href="exp3.html" target="_blank" class="btn">View Project</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>Project 4</h3>
+                <a href="exp4.html" target="_blank" class="btn">View Project</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>Project 5</h3>
+                <a href="exp5.html" target="_blank" class="btn">View Project</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>Project 6</h3>
+                <a href="exp6.html" target="_blank" class="btn">View Project</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>Project 7</h3>
+                <a href="exp7.html" target="_blank" class="btn">View Project</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>Project 8</h3>
+                <a href="exp8.html" target="_blank" class="btn">View Project</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>Project 9</h3>
+                <a href="exp9.html" target="_blank" class="btn">View Project</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>Project 10</h3>
+                <a href="exp10.html" target="_blank" class="btn">View Project</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>Project 11</h3>
+                <a href="exp11.html" target="_blank" class="btn">View Project</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>Project 12</h3>
+                <a href="exp12.html" target="_blank" class="btn">View Project</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>Project 13</h3>
+                <a href="exp13.html" target="_blank" class="btn">View Project</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>Project 14</h3>
+                <a href="exp14.html" target="_blank" class="btn">View Project</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>Project 15</h3>
+                <a href="exp15.html" target="_blank" class="btn">View Project</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>Project 16</h3>
+                <a href="exp16.html" target="_blank" class="btn">View Project</a>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="resume" class="resume">
+        <h2>Resume</h2>
+        <p>Click the button below to view my resume.</p>
+        <a href="Aniket resume.pdf" target="_blank" class="btn" style="color: lightgreen;">View Resume</a>
+    </section>
+    
+
+
+    <section id="contact" class="contact">
+        <h2>Contact Information</h2>
+        <p style="color: cornflowerblue;">You can reach me through the following:</p>
+        <div class="contact-info">
+            <p style="color: darkturquoise;"><strong>Email:</strong> <a>singhrajputaniket739@gmail.com.com</a></p>
+            <p style="color: darkturquoise;"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/aniket-kumar-singh-a9656b209/" target="_blank">Click Here</a></p>
+            <p style="color: darkturquoise;"><strong>GitHub:</strong> <a href="https://github.com/Aniket7291" target="_blank">Click here</a></p>
+        </div>
+    </section>
+    
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelector('.nav-links');
+    const menuToggle = document.querySelector('.menu-toggle');
+
+    menuToggle.addEventListener('click', function() {
+        if (navLinks.style.display === 'flex') {
+            navLinks.style.display = 'none';
+        } else {
+            navLinks.style.display = 'flex';
+        }
+    });
+});
+
+    </script>
+</body>
+</html>
